@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f8f9ff;
+    box-sizing: border-box;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  header h1{
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .todo {
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .strike {
+    text-decoration: line-through;
+    color: #4caf50;
+  }
+  
+  .todo-wrapper{
+    max-width: 400px;
+    width: 100%;
+    margin: 100px auto;
+    padding: 40px 30px;
+    background: #ffffff;
+    border-radius: 10px;
+  }
+  
+  button{
+    margin: 10px 0;
+    padding: 17px 30px;
+    display: block;
+    width: 100%;
+    background: #4caf50;
+    border: none;
+    color: #fff;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+  }
+  
+  .todo-list button{
+    margin-top: 30px;
+  }
+  
+  form{
+    position: relative;
+  }
+  
+  form input{
+    width: 100%;
+    height: 50px;
+    border-radius: 46px;
+    padding: 0 135px 0 20px;
+    border: 1px solid #d5d2d2;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  form button{
+    padding: 12px 30px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    margin: 0;
+    width: auto;
+    background: #2196f3;
+  }
