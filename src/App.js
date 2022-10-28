@@ -1,8 +1,11 @@
-import {useEffect, useState} from "react"
-import './App.css'
-import axios from 'axios'
-import Movie from "./components/Movie"
-import Youtube from 'react-youtube'
+import {useEffect, useState} from "react";
+import './App.css';
+import axios from 'axios';
+import Movie from "./components/Movie";
+import Youtube from 'react-youtube';
+import NavbarMenu from './components/Navbar';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
     const MOVIE_API = "https://api.themoviedb.org/3/"
@@ -137,7 +140,25 @@ function App() {
                     </div>
                 </main>
                 : 'Sorry, no movies found'}
+        
         </div>
+        <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+<BrowserRouter>
+  <div className="web-movie-app">
+    <NavbarMenu token={token} setToken={setToken} />
+    <Routes>
+      <Route index element={<Home token={token} setToken={setToken} />} />
+
+      <Route path="/register" element={<Register token={token} setToken={setToken} />} />
+      <Route path="/login" element={<Login token={token} setToken={setToken} />} />
+      <Route/>
+      <Route
+      />
+    </Routes>
+  </div>
+</BrowserRouter>
+</GoogleOAuthProvider>
+
     );
 }
 
