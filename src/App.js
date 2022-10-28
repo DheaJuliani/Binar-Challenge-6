@@ -80,6 +80,7 @@ function App() {
     )
 
     return (
+        <>
         <div className="App">
             <header className="center-max-size header">
                 <span className={"brand"}>MovieList</span>
@@ -142,22 +143,22 @@ function App() {
                 : 'Sorry, no movies found'}
         
         </div>
-        <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
-<BrowserRouter>
-  <div className="web-movie-app">
-    <NavbarMenu token={token} setToken={setToken} />
-    <Routes>
-      <Route index element={<Home token={token} setToken={setToken} />} />
+        < GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+        < BrowserRouter >
+            <div className="web-movie-app">
+                <NavbarMenu token={token} setToken={setToken} />
+            <Routes>
+                <Route index element={<Home token={token} setToken={setToken} />} />
 
-      <Route path="/register" element={<Register token={token} setToken={setToken} />} />
-      <Route path="/login" element={<Login token={token} setToken={setToken} />} />
-      <Route/>
-      <Route
-      />
-    </Routes>
-  </div>
-</BrowserRouter>
-</GoogleOAuthProvider>
+                <Route path="/register" element={<Register token={token} setToken={setToken} />} />
+                <Route path="/login" element={<Login token={token} setToken={setToken} />} />
+                < /Route>
+            </Routes>
+            </div>
+        </BrowserRouter>
+        </GoogleOAuthProvider>
+
+</>
 
     );
 }
