@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Grid from "@mui/material/Grid";
-import SearchMovie from "../Core/SearchMovie";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "@emotion/styled";
 import axios from "axios";
-import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import SettingsIcon from "@mui/icons-material/Settings";
-import { Tooltip, Button, Menu, MenuItem } from "@mui/material";
-import LogoutIcon from "@mui/icons-material/Logout";
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
 
 function NavbarMenu({ token, setToken }) {
   const navigate = useNavigate();
@@ -55,70 +44,38 @@ function NavbarMenu({ token, setToken }) {
   };
   return (
     <div className="menupage">
-      <Grid container spacing={2} className="gridbar">
-        <Grid item xs={3}>
-          <StyledLink to="/">
-            <h1 className="logopage">Movielist</h1>
-          </StyledLink>
-        </Grid>
-        <Grid item xs={6}>
-          <SearchMovie />
-        </Grid>
+      <div container spacing={2} className="divbar">
+        <div item xs={3}>
+          <Link to="/">
+            <h1 className="logopage">MovieList</h1>
+          </Link>
+        </div>
         {!token ? (
           <>
-            <Grid item xs={3}>
-              <StyledLink to="login">
-                <Button variant="outlined" sx={{ borderRadius: 20, border: "2px solid", marginTop: "25px", marginRight: "15px" }}>
+            <div item xs={3}>
+              <Link to="login">
+                <button variant="outlined" sx={{ borderRadius: 20, border: "2px solid", marginTop: "25px", marginRight: "15px" }}>
                   Log In
-                </Button>
-              </StyledLink>
-              <StyledLink to="register">
-                <Button variant="contained" sx={{ borderRadius: 20, marginTop: "25px" }}>
+                </button>
+              </Link>
+              <Link to="register">
+                <button variant="contained" sx={{ borderRadius: 20, marginTop: "25px" }}>
                   Register
-                </Button>
-              </StyledLink>
-            </Grid>
+                </button>
+              </Link>
+            </div>
           </>
         ) : (
           <>
-            <Grid item xs={3} sx={{ marginTop: "25px" }}>
-              <Tooltip title="Account">
-                <Button style={{ color: "#dc143c", fontFamily: "roboto" }} id="basic-button" aria-controls={open ? "basic-menu" : undefined} aria-haspopup="true" aria-expanded={open ? "true" : undefined} onClick={handleClick}>
-                  <strong>
-                    <AccountCircleRoundedIcon fontSize="large" style={{ color: "#DC143C", fontWeight: "bold" }} />
-                  </strong>
-                </Button>
-              </Tooltip>
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  "aria-labelledby": "basic-button",
-                }}
-              >
-                <MenuItem onClick={handleClose}>
-                  <AccountCircleRoundedIcon style={{ color: "#DC143C", fontSize: "large" }} />
-                  {"Profile"}
-                </MenuItem>
-              </Menu>
-              <Tooltip title="Settings">
-                <Button style={{ color: "#dc143c", fontFamily: "roboto" }}>
-                  <strong>
-                    <SettingsIcon fontSize="large" style={{ color: "#DC143C", fontWeight: "bold" }} />
-                  </strong>
-                </Button>
-              </Tooltip>
-              <Tooltip title="Log Out">
-                <Button style={{ color: "#dc143c", fontFamily: "roboto" }}>
-                  <LogoutIcon fontSize="large" style={{ color: "#DC143C", fontWeight: "bold" }} onClick={handleLogout} />
-                </Button>
-              </Tooltip>
-            </Grid>
+            <div item xs={3} sx={{ marginTop: "25px" }}>      
+
+                <button style={{ color: "#dc143c", fontFamily: "roboto" }}>
+                  Log Out
+                </button>
+            </div>
           </>
         )}
-      </Grid>
+      </div>
     </div>
   );
 }

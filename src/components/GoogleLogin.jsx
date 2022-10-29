@@ -1,9 +1,6 @@
 import React from "react";
 import { useGoogleLogin } from "@react-oauth/google";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
-import { Button } from "react-bootstrap";
 
 function GoogleLogin({ setToken, label }) {
   const googleLogin = useGoogleLogin({
@@ -35,9 +32,9 @@ function GoogleLogin({ setToken, label }) {
   return (
     <div className="d-grid">
       <div className="m-auto">
-        <Button variant="primary" onClick={googleLogin}>
-          <FontAwesomeIcon icon={faGoogle} /> {label}
-        </Button>
+        <button variant="primary" onClick={googleLogin}>
+          Google Login
+        </button>
       </div>
     </div>
   );

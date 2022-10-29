@@ -1,10 +1,6 @@
 import React, { useEffect } from "react";
-import { LinkContainer } from "react-router-bootstrap";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Header({ token, setToken }) {
   const navigate = useNavigate();
@@ -39,40 +35,13 @@ function Header({ token, setToken }) {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <LinkContainer to="/">
-          <Navbar.Brand>Home</Navbar.Brand>
-        </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <LinkContainer to="/">
-              <Nav.Link>Home</Nav.Link>
-            </LinkContainer>
-            {!token ? (
-              <>
-                <LinkContainer to="/login">
-                  <Nav.Link>Login</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/register">
-                  <Nav.Link>Register</Nav.Link>
-                </LinkContainer>
-              </>
-            ) : (
-              <>
-                <LinkContainer to="/posts">
-                  <Nav.Link>Posts</Nav.Link>
-                </LinkContainer>
-                <Nav.Link href="/logout" onClick={handleLogout}>
-                  Logout
-                </Nav.Link>
-              </>
-            )}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav bg="light" expand="lg">
+      <div>
+        <Link to="/">
+          <p>Home</p>
+        </Link>
+      </div>
+    </nav>
   );
 }
 
