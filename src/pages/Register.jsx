@@ -5,6 +5,7 @@ import GoogleLogin from "../components/GoogleLogin";
 
 const Register = ({ token, setToken }) => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
@@ -21,9 +22,10 @@ const Register = ({ token, setToken }) => {
       const data = {
         email,
         password,
+        name,
       };
       try {
-        const result = await axios.post('https://challenge6-backend.herokuapp.com/api/v1/auth/login', data
+        const result = await axios.post('https://challenge6-backend.herokuapp.com/api/v1/auth/register', data
         );
         if (result.data.token) {
           // Set token from backend to local storage
@@ -58,6 +60,17 @@ const Register = ({ token, setToken }) => {
                   />
 
                   <Form onSubmit={handleSubmit}>
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                  </Form.Group>
+
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Label>Email address</Form.Label>
                       <Form.Control
@@ -67,9 +80,6 @@ const Register = ({ token, setToken }) => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                       />
-                      <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                      </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">

@@ -69,8 +69,8 @@ function NavbarMenu({ token, setToken }) {
           <>
             <div item xs={3} sx={{ marginTop: "25px" }}>      
 
-                <button style={{ color: "#dc143c", fontFamily: "roboto" }}>
-                  Log Out
+                <button style={{ color: "#dc143c", fontFamily: "roboto" }} onClick={handleLogout} >
+                  Log Out 
                 </button>
             </div>
           </>

@@ -26,14 +26,11 @@ const Login = ({ token, setToken }) => {
         const result = await axios.post('https://challenge6-backend.herokuapp.com/api/v1/auth/login', data);
 
         if (result.data.token) {
-          // Set token from backend to local storage
-          // {"data": { "token": "ini token" }}
           localStorage.setItem("token", result.data.token);
           setToken(result.data.token);
         }
       } catch (error) {
-        // If there are any error it will show the error message from backend
-        // { "message": "Password salah" }
+        
         alert(error.response.data.message);
       }
     }
@@ -63,9 +60,6 @@ const Login = ({ token, setToken }) => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                       />
-                      <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                      </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
