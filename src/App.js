@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+//import store from "./Redux/store";
 
 function App() {
     const tokenLocalStorage = localStorage.getItem("token");

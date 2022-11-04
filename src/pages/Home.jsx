@@ -1,7 +1,9 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
 import Movie from "../components/Movie";
 import Youtube from 'react-youtube';
+//import { useDispatch, useSelector } from 'react-redux';
+//import { getMovie } from '../components/Movie';
 
 function Home() {
     const MOVIE_API = "https://api.themoviedb.org/3/"
@@ -16,9 +18,17 @@ function Home() {
     const [searchKey, setSearchKey] = useState("")
     const [movie, setMovie] = useState({title: "Loading Movies"})
 
+    //const playing = useSelector((state) => state.movie.playing);
+    //const trailer = useSelector((state) => state.movie.trailer);
+    //const movies = useSelector((state) => state.movie.movies);
+    //const searchKey = useSelector((state) => state.movie.searchKey);
+
+    //const dispatch = useDispatch();
+
     useEffect(() => {
         fetchMovies()
-    }, [])
+    //dispatch(getMovie());
+    }, []);
 
     const fetchMovies = async (event) => {
         if (event) {
